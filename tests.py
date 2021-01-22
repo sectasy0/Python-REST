@@ -50,8 +50,8 @@ class BasicTests(unittest.TestCase):
 
     def test_login(self):
         data = {
-            "username": "lsd",
-            "password": "chujkurwa"
+            "username": "user23",
+            "password": "p4ssw0rt123"
         }
         response = self.app.post('/api/v1.0/auth/login', data=json.dumps(data),
                                  follow_redirects=True, content_type='application/json')
@@ -73,7 +73,7 @@ class BasicTests(unittest.TestCase):
     def test_register(self):
         data = {
             "username": randomString(10),
-            "password": "chujkurwa",
+            "password": "p4ssw0rt123",
             "email": f"{randomString(5)}@gmail.com"
         }
 
@@ -84,8 +84,8 @@ class BasicTests(unittest.TestCase):
     def test_register_email_taken(self):
         data = {
             "username": randomString(10),
-            "password": "chujkurwa",
-            "email": "twojastara@gmail.com"
+            "password": "p4ssw0rt123",
+            "email": "em4il.test@gmail.com"
         }
 
         response = self.app.post('/api/v1.0/auth/register', data=json.dumps(data),
@@ -95,8 +95,8 @@ class BasicTests(unittest.TestCase):
     def test_register_user_exists(self):
         data = {
             "username": "lsd",
-            "password": "chujkurwa",
-            "email": "test@twojastara.com"
+            "password": "p4ssw0rt123",
+            "email": "test@mail.com"
         }
 
         response = self.app.post('/api/v1.0/auth/register', data=json.dumps(data),
